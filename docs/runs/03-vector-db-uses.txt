@@ -1,0 +1,8 @@
+prompt_tokens:  22
+completion_tokens:  95
+Total Tokens:  117
+1. **Recommendation Systems**: Vector databases can efficiently store and retrieve user and item embeddings to provide personalized recommendations based on similarity.
+
+2. **Natural Language Processing (NLP)**: They are used to store word or sentence embeddings, enabling tasks like semantic search, text classification, and sentiment analysis.
+
+3. **Image and Video Retrieval**: Vector databases facilitate fast similarity searches for images and videos by storing feature vectors extracted from visual content, allowing for efficient content-based retrieval.
