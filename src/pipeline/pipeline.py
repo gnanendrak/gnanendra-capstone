@@ -18,6 +18,7 @@ import asyncio
 import csv
 import json
 import time
+from tqdm import tqdm
 from pathlib import Path
 
 from .logging_config import get_logger
@@ -98,6 +99,7 @@ async def ask_llm_with_retry(
     fail_rate: float=0.0
 ) -> Answer:
     """Retry up to `tries` times. Wait 1 s, 2 s, 4 s between attempts."""
+    
     for attempt in range(tries):
         try:
             ans=await ask_llm(q, fail_rate=fail_rate)
@@ -131,6 +133,12 @@ async def run_in_batches(
         ) -> list[Answer]:
     """Fire questions in chunks of `batch_size`, with a 100 ms pause between batches."""
 
+    progress = tqdm(
+        total=len(questions),
+        desc="Processing questions",
+        unit="question",
+    )
+
     out: list[Answer]=[]
     for i in range(0, len(questions), batch_size):
         chunk=questions[i:i+batch_size]
@@ -140,6 +148,8 @@ async def run_in_batches(
             )
         out.extend(batch_answers)
         await asyncio.sleep(0.1)
+        progress.update(len(chunk))
+    progress.close()
 
     return out
 
@@ -204,4 +214,17 @@ if __name__ == "__main__":
         }, indent=2)
     )
     print(f"wrote {len(answers)} answers to {settings.results_json} in {elapsed:.2f}s")
+
+    # SQLite persistence
+    # Deferred import: store.py imports Answer from this module; top-level import
+    # would cause a circular import.
+    from .store import connect, write_run, write_answers
+    with connect(settings.results_db) as con:
+        run_id=write_run(con,summary)
+        n=write_answers(con, run_id, answers)
+    log.info(f"persisted run {run_id} with {n} answersto {settings.results_db}")
+
+    totalCost=sum(a.cost_usd for a in answers)
+    log.info(f"total-cost: {totalCost}")
+
     
