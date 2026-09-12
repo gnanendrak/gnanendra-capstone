@@ -26,21 +26,23 @@ async def test_ask_llm_calls_fake_once():
     We mock the boundary we don't want to exercise (the fake call itself) and
     assert behaviour we do control (ask_llm calls it once, returns its result).
     """
-
-    fake_answer=Answer(
+    fake_answer = Answer(
         question="What is RAG?",
-        text="Mocked answer",
-        cost_usd=0.001,
-        retries=0
+        text="Mocked answer.",
+        cost_usd=0.0001,
+        retries=0,
     )
 
     with patch(
-        "src.pipeline.pipeline.ask_llm", AsyncMock(return_value=fake_answer)
+        "src.pipeline.pipeline_W3.fake_ask_llm", AsyncMock(return_value=fake_answer)
     ) as m:
-        from src.pipeline.pipeline import ask_llm
-        result=await ask_llm(text="What is RAG?")
-    assert m.call_count==1
-    assert result.text=="Mocked answer"
+        from src.pipeline.pipeline_W3 import ask_llm
+
+        result = await ask_llm(Question(text="What is RAG?"))
+
+    assert m.call_count == 1
+    assert result.text == "Mocked answer."
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 2c — ask_llm_with_retry hits 3 times on persistent failure
@@ -57,16 +59,15 @@ async def test_retry_three_times_on_failure():
     """
 
     with patch(
-        "src.pipeline.pipeline.fake_ask_llm",
+        "src.pipeline.pipeline_W3.fake_ask_llm",
         AsyncMock(side_effect=FakeLLMError("simulated")),
     ) as m_call, patch(
-        "src.pipeline.pipeline.asyncio.sleep",
+        "src.pipeline.pipeline_W3.asyncio.sleep",
         AsyncMock(),
     ):
-        from src.pipeline.pipeline import ask_llm_with_retry
+        from src.pipeline.pipeline_W3 import ask_llm_with_retry
 
         with pytest.raises(FakeLLMError):
             await ask_llm_with_retry(Question(text="What is RAG?"), tries=3)
 
     assert m_call.call_count == 3
-    

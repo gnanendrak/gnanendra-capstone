@@ -6,7 +6,7 @@ server: uvicorn
 content-length: 91
 content-type: application/json
 
-{"detail":[{"type":"missing","loc":["body","question"],"msg":"Field required","input":{}}]}%                                                                                                                      gnanendra@Gnanendras-MacBook-Pro 
+{"detail":[{"type":"missing","loc":["body","question"],"msg":"Field required","input":{}}]}
 
 curl -i -X POST http://localhost:8000/ask -H "Content-Type: application/json" -d '{"q": "What is the leave policy?"}'
 HTTP/1.1 422 Unprocessable Entity

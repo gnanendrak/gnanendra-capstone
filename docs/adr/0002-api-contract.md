@@ -2,8 +2,8 @@
 
 **Status:** Locked from Week 3.
 **Defended at:** Design Review #1 (Week 5).
-**Owners:** Dinesh Karthick
-**Date:** _[2026-09-09]_
+**Owners:** Kanala Gnanendra Reddy
+**Date:** _[2026-09-12]_
 
 ## Context
 
