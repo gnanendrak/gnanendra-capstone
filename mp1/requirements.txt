@@ -1,0 +1,7 @@
+openai>=1.30.0
+pandas>=2.0.0
+python-dotenv>=1.0.0
+
+# Jupyter support for running mp1_prompt_lab.ipynb
+jupyter>=1.0.0
+ipykernel>=6.29.0
