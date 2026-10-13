@@ -22,7 +22,7 @@ from pathlib import Path
 # not the project root, so `from src.pipeline...` raises ModuleNotFoundError.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.pipeline.store import ensure_schema
+from pipeline.store_W4 import ensure_schema
 
 
 def main(argv: list[str]) -> int:

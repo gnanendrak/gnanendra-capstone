@@ -1,0 +1,14 @@
+{
+  "document_id": "01_employee_handbook",
+  "filename": "01_employee_handbook.md",
+  "policy_name": "Employee Handbook",
+  "category": "employee-experience",
+  "owner": "People & Culture",
+  "version": "3.0",
+  "effective_date": "2026-01-01",
+  "word_count": 2080,
+  "sha256": "7d6fdf81f23201c2a54f53fdfe611a48e7e1acc88f73d5d29a014b2ea0939f05",
+  "section_count": 27,
+  "organization": "Northstar Financial Services Group",
+  "jurisdiction": "Global corporate baseline; local law and local employment terms prevail"
+}

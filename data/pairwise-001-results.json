@@ -1,0 +1,38 @@
+# Pairwise comparison summary (20 golden questions)
+
+- Golden set: `data/hr_golden_set_20.jsonl`
+- Prompt v1: `data/prompt-v1.txt`
+- Prompt v2: `data/prompt-v2.txt`
+
+## Totals
+
+| Outcome | Count |
+|---|---:|
+| APP | 20 |
+| IDEAL | 0 |
+| TIE (order-dependent) | 0 |
+
+## Per-question results
+
+| ID | Winner |
+|---|---|
+| g001 | APP |
+| g002 | APP |
+| g003 | APP |
+| g004 | APP |
+| g005 | APP |
+| g006 | APP |
+| g007 | APP |
+| g008 | APP |
+| g009 | APP |
+| g010 | APP |
+| g026 | APP |
+| g027 | APP |
+| g028 | APP |
+| g029 | APP |
+| g054 | APP |
+| g055 | APP |
+| g056 | APP |
+| g057 | APP |
+| g069 | APP |
+| g070 | APP |

@@ -1,0 +1,15 @@
+{
+  "documents": 22,
+  "total_words": 46506,
+  "min_words": 2080,
+  "max_words": 2144,
+  "chunk_count": 637,
+  "golden_questions": 55,
+  "canned_verbatim_presence": {
+    "canned_1": true,
+    "canned_2": true,
+    "canned_3": true
+  },
+  "missing_expected_documents": [],
+  "all_golden_doc_refs_valid": true
+}

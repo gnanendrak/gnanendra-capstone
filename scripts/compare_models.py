@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.pipeline.models import Question
 from src.pipeline.pipeline import ask_llm
 from src.pipeline.settings import Settings
-from src.pipeline.store import connect, save_answer
+from pipeline.store_W4 import connect, save_answer
 
 
 async def run_one_model(questions: list[str], model: str, db_path: Path) -> dict:

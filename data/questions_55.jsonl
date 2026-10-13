@@ -1,0 +1,55 @@
+{"id": "hr_001", "question": "How many days per week may an employee work remotely under the standard policy?", "difficulty": "easy", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_002", "question": "What does the remote-work policy say about working from home each week?", "difficulty": "easy", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_003", "question": "Can employees work remotely, and who needs to approve it?", "difficulty": "easy", "type": "multi-source", "category": "working-arrangements"}
+{"id": "hr_004", "question": "Is three remote days an automatic entitlement for every employee?", "difficulty": "easy", "type": "boundary", "category": "working-arrangements"}
+{"id": "hr_005", "question": "Does the employee handbook mention remote work?", "difficulty": "easy", "type": "single-hop", "category": "employee-handbook"}
+{"id": "hr_006", "question": "Can a manager decline a remote-work request?", "difficulty": "easy", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_007", "question": "Does remote working remove normal availability requirements?", "difficulty": "easy", "type": "multi-source", "category": "attendance"}
+{"id": "hr_008", "question": "What is the difference between hybrid working and remote working?", "difficulty": "medium", "type": "multi-source", "category": "working-arrangements"}
+{"id": "hr_009", "question": "Is flexible working the same as asking for more remote days?", "difficulty": "medium", "type": "policy-boundary", "category": "working-arrangements"}
+{"id": "hr_010", "question": "An employee wants a fixed Tuesday afternoon off for childcare. Which policy is more appropriate?", "difficulty": "medium", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_011", "question": "Can an employee work from another country under the standard remote-work approval?", "difficulty": "medium", "type": "exception", "category": "working-arrangements"}
+{"id": "hr_012", "question": "Can a manager ask a remote employee to attend a critical client meeting on site?", "difficulty": "medium", "type": "scenario", "category": "working-arrangements"}
+{"id": "hr_013", "question": "What should a team consider when designing a hybrid pattern?", "difficulty": "medium", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_014", "question": "What are the core working hours in the attendance policy?", "difficulty": "easy", "type": "single-hop", "category": "attendance"}
+{"id": "hr_015", "question": "When should an unplanned absence normally be reported?", "difficulty": "easy", "type": "single-hop", "category": "attendance"}
+{"id": "hr_016", "question": "Does the sick-leave policy treat repeated absence as automatic misconduct?", "difficulty": "medium", "type": "boundary", "category": "absence"}
+{"id": "hr_017", "question": "What should a manager consider when a health condition affects attendance?", "difficulty": "medium", "type": "multi-source", "category": "absence"}
+{"id": "hr_018", "question": "When might a formal performance improvement plan be appropriate?", "difficulty": "easy", "type": "multi-source", "category": "performance"}
+{"id": "hr_019", "question": "Does promotion happen automatically after strong performance?", "difficulty": "easy", "type": "boundary", "category": "career"}
+{"id": "hr_020", "question": "What factors should be used in promotion decisions?", "difficulty": "easy", "type": "single-hop", "category": "career"}
+{"id": "hr_021", "question": "Does a strong performance rating guarantee a salary increase?", "difficulty": "easy", "type": "boundary", "category": "compensation"}
+{"id": "hr_022", "question": "What should a manager do if a performance issue is caused by missing training?", "difficulty": "medium", "type": "scenario", "category": "performance"}
+{"id": "hr_023", "question": "What is the first step in the recruitment process?", "difficulty": "easy", "type": "single-hop", "category": "recruitment"}
+{"id": "hr_024", "question": "Can an interviewer invent new selection criteria halfway through recruitment?", "difficulty": "medium", "type": "boundary", "category": "recruitment"}
+{"id": "hr_025", "question": "What should interview notes contain?", "difficulty": "medium", "type": "single-hop", "category": "recruitment"}
+{"id": "hr_026", "question": "What must be ready before a new employee starts?", "difficulty": "easy", "type": "single-hop", "category": "onboarding"}
+{"id": "hr_027", "question": "Can a remote new starter skip security training because they work from home?", "difficulty": "medium", "type": "multi-source", "category": "onboarding"}
+{"id": "hr_028", "question": "What is the purpose of the conflict-of-interest policy?", "difficulty": "easy", "type": "single-hop", "category": "ethics"}
+{"id": "hr_029", "question": "If a hiring manager's family member applies for a role, what should happen?", "difficulty": "medium", "type": "scenario", "category": "ethics"}
+{"id": "hr_030", "question": "Can an employee complain about bullying without making a formal grievance immediately?", "difficulty": "medium", "type": "multi-source", "category": "employee-relations"}
+{"id": "hr_031", "question": "Is confidentiality during a harassment investigation absolute?", "difficulty": "medium", "type": "boundary", "category": "employee-relations"}
+{"id": "hr_032", "question": "Should a grievance be used to duplicate an appeal already provided by another policy?", "difficulty": "medium", "type": "boundary", "category": "employee-relations"}
+{"id": "hr_033", "question": "An employee disputes a performance rating. Should they automatically file a grievance?", "difficulty": "hard", "type": "multi-hop", "category": "employee-relations"}
+{"id": "hr_034", "question": "What is the difference between a grievance and a protected reporting route for wrongdoing?", "difficulty": "hard", "type": "policy-boundary", "category": "employee-relations"}
+{"id": "hr_035", "question": "What is least privilege in the privacy policy?", "difficulty": "easy", "type": "single-hop", "category": "privacy"}
+{"id": "hr_036", "question": "Can a manager access an employee's sickness details just because they work at the same company?", "difficulty": "medium", "type": "multi-source", "category": "privacy"}
+{"id": "hr_037", "question": "What should an employee do after a suspected data disclosure?", "difficulty": "easy", "type": "single-hop", "category": "privacy"}
+{"id": "hr_038", "question": "What should happen when an employee resigns?", "difficulty": "easy", "type": "single-hop", "category": "exit"}
+{"id": "hr_039", "question": "Does unused leave at exit automatically become a global fixed cash payment?", "difficulty": "medium", "type": "boundary", "category": "exit"}
+{"id": "hr_040", "question": "When may informal management be preferable to formal disciplinary action?", "difficulty": "easy", "type": "single-hop", "category": "discipline"}
+{"id": "hr_041", "question": "Does remote working change disciplinary standards?", "difficulty": "hard", "type": "multi-hop", "category": "discipline"}
+{"id": "hr_042", "question": "What is reasonable adjustment in the equal employment policy?", "difficulty": "easy", "type": "single-hop", "category": "equality"}
+{"id": "hr_043", "question": "Can remote employees be excluded from development opportunities because they are not in the office every day?", "difficulty": "hard", "type": "multi-hop", "category": "equality"}
+{"id": "hr_044", "question": "What does the employee handbook say when global policy conflicts with local law?", "difficulty": "easy", "type": "single-hop", "category": "employee-handbook"}
+{"id": "hr_045", "question": "A team wants four remote days every week for everyone. What is the correct policy interpretation?", "difficulty": "hard", "type": "multi-hop", "category": "working-arrangements"}
+{"id": "hr_046", "question": "An employee wants to work remotely Monday to Wednesday and also compress hours into four days. How should the request be handled?", "difficulty": "hard", "type": "multi-hop", "category": "working-arrangements"}
+{"id": "hr_047", "question": "Which policy should a manager use when performance is poor because expectations were never clearly defined?", "difficulty": "hard", "type": "multi-hop", "category": "performance"}
+{"id": "hr_048", "question": "What is the correct response if a conflict of interest is only perceived, not actual?", "difficulty": "hard", "type": "single-hop", "category": "ethics"}
+{"id": "hr_049", "question": "Does the corpus state that employees receive a guaranteed annual salary increase of 10%?", "difficulty": "medium", "type": "not-found", "category": "negative"}
+{"id": "hr_050", "question": "Does the corpus guarantee that every employee can work remotely five days a week?", "difficulty": "medium", "type": "not-found", "category": "negative"}
+{"id": "hr_051", "question": "Does the corpus say that a minor mistake always leads to dismissal?", "difficulty": "medium", "type": "not-found", "category": "negative"}
+{"id": "hr_052", "question": "Does the corpus guarantee promotion after five years of service?", "difficulty": "easy", "type": "not-found", "category": "negative"}
+{"id": "hr_053", "question": "Does the corpus say all HR data may be shared with any manager?", "difficulty": "easy", "type": "not-found", "category": "negative"}
+{"id": "hr_054", "question": "A remote employee misses an on-site control event. Is this only a remote-work issue?", "difficulty": "hard", "type": "multi-hop", "category": "advanced"}
+{"id": "hr_055", "question": "Explain, using the policy hierarchy, why a three-day remote approval does not override security requirements.", "difficulty": "hard", "type": "multi-hop", "category": "advanced"}

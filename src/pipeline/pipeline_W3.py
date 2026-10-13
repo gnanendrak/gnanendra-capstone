@@ -218,7 +218,7 @@ if __name__ == "__main__":
     # SQLite persistence
     # Deferred import: store.py imports Answer from this module; top-level import
     # would cause a circular import.
-    from .store import connect, write_run, write_answers
+    from .store_W4 import connect, write_run, write_answers
     with connect(settings.results_db) as con:
         run_id=write_run(con,summary)
         n=write_answers(con, run_id, answers)

@@ -1,0 +1,50 @@
+{"id": "hr_001", "question": "How many days per week may an employee work remotely under the standard policy?", "difficulty": "easy", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_002", "question": "What are the normal core hours?", "difficulty": "easy", "type": "single-hop", "category": "attendance"}
+{"id": "hr_003", "question": "Who must approve standard remote work?", "difficulty": "easy", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_004", "question": "When should unplanned absence normally be reported?", "difficulty": "easy", "type": "single-hop", "category": "attendance"}
+{"id": "hr_005", "question": "What is the standard flight class for a flight of 5 hours?", "difficulty": "easy", "type": "single-hop", "category": "travel-expenses"}
+{"id": "hr_006", "question": "How soon after a trip should an expense claim normally be submitted?", "difficulty": "easy", "type": "single-hop", "category": "travel-expenses"}
+{"id": "hr_007", "question": "Are minibar charges reimbursable?", "difficulty": "easy", "type": "single-hop", "category": "travel-expenses"}
+{"id": "hr_008", "question": "What happens to personal leisure extensions on business trips?", "difficulty": "easy", "type": "single-hop", "category": "travel-expenses"}
+{"id": "hr_009", "question": "Does certification guarantee promotion?", "difficulty": "easy", "type": "single-hop", "category": "learning-development"}
+{"id": "hr_010", "question": "What takes priority when mandatory training conflicts with optional learning?", "difficulty": "easy", "type": "single-hop", "category": "learning-development"}
+{"id": "hr_011", "question": "Must employees disclose perceived conflicts?", "difficulty": "easy", "type": "single-hop", "category": "conflict-of-interest"}
+{"id": "hr_012", "question": "Is retaliation for good-faith reporting prohibited?", "difficulty": "easy", "type": "single-hop", "category": "conduct"}
+{"id": "hr_013", "question": "What access principle applies to new employees?", "difficulty": "easy", "type": "single-hop", "category": "onboarding-security"}
+{"id": "hr_014", "question": "What should interview notes be like?", "difficulty": "easy", "type": "single-hop", "category": "recruitment"}
+{"id": "hr_015", "question": "Is a strong performance rating alone enough for a salary increase?", "difficulty": "easy", "type": "single-hop", "category": "compensation"}
+{"id": "hr_016", "question": "Who owns the Employee Handbook?", "difficulty": "easy", "type": "single-hop", "category": "policy-governance"}
+{"id": "hr_017", "question": "Are benefit summaries a replacement for plan documents?", "difficulty": "easy", "type": "single-hop", "category": "benefits"}
+{"id": "hr_018", "question": "Can managers approve their own conflicts?", "difficulty": "easy", "type": "single-hop", "category": "conflict-of-interest"}
+{"id": "hr_019", "question": "Is repeated sickness absence automatically misconduct?", "difficulty": "easy", "type": "single-hop", "category": "sick-leave"}
+{"id": "hr_020", "question": "Can employees request flexible hours without requesting remote work?", "difficulty": "easy", "type": "single-hop", "category": "flexible-working"}
+{"id": "hr_021", "question": "If a remote employee is unavailable during core hours, what obligation may be implicated?", "difficulty": "medium", "type": "single-hop", "category": "attendance"}
+{"id": "hr_022", "question": "What should a manager consider before declining a remote-work request?", "difficulty": "medium", "type": "single-hop", "category": "working-arrangements"}
+{"id": "hr_023", "question": "Can a hybrid arrangement be reviewed when business needs change?", "difficulty": "medium", "type": "single-hop", "category": "hybrid-working"}
+{"id": "hr_024", "question": "Can a flexible-working approval be time-limited?", "difficulty": "medium", "type": "single-hop", "category": "flexible-working"}
+{"id": "hr_025", "question": "What factors can affect leave approval timing?", "difficulty": "medium", "type": "multi-hop", "category": "leave"}
+{"id": "hr_026", "question": "What should a manager consider during repeated sickness absence?", "difficulty": "medium", "type": "multi-hop", "category": "sick-leave"}
+{"id": "hr_027", "question": "What factors should promotion decisions consider besides tenure?", "difficulty": "medium", "type": "multi-hop", "category": "promotion"}
+{"id": "hr_028", "question": "What factors should managers use in salary review decisions?", "difficulty": "medium", "type": "multi-hop", "category": "compensation"}
+{"id": "hr_029", "question": "What must happen before an offer is final?", "difficulty": "medium", "type": "single-hop", "category": "recruitment"}
+{"id": "hr_030", "question": "What must be completed during onboarding?", "difficulty": "medium", "type": "single-hop", "category": "onboarding"}
+{"id": "hr_031", "question": "When can confidential employee information be accessed?", "difficulty": "medium", "type": "single-hop", "category": "data-privacy"}
+{"id": "hr_032", "question": "What should happen when a privacy incident occurs?", "difficulty": "medium", "type": "single-hop", "category": "data-privacy"}
+{"id": "hr_033", "question": "Can harassment concerns be raised informally?", "difficulty": "medium", "type": "single-hop", "category": "anti-harassment"}
+{"id": "hr_034", "question": "Can absolute confidentiality always be promised in a harassment investigation?", "difficulty": "medium", "type": "single-hop", "category": "anti-harassment"}
+{"id": "hr_035", "question": "When may a grievance use another procedure or parallel route?", "difficulty": "medium", "type": "multi-hop", "category": "grievance"}
+{"id": "hr_036", "question": "What mitigation actions can be used for a conflict of interest?", "difficulty": "medium", "type": "multi-hop", "category": "conflict-of-interest"}
+{"id": "hr_037", "question": "What information should an employee receive before formal disciplinary action proceeds?", "difficulty": "medium", "type": "single-hop", "category": "discipline"}
+{"id": "hr_038", "question": "How should disciplinary investigations be conducted?", "difficulty": "medium", "type": "single-hop", "category": "discipline"}
+{"id": "hr_039", "question": "What determines whether exit access is removed immediately?", "difficulty": "medium", "type": "multi-hop", "category": "resignation-exit"}
+{"id": "hr_040", "question": "What should be returned when an employee exits?", "difficulty": "medium", "type": "single-hop", "category": "resignation-exit"}
+{"id": "hr_041", "question": "An employee has three remote days approved but is needed onsite for a critical client meeting. What happens?", "difficulty": "hard", "type": "multi-hop", "category": "working-arrangements"}
+{"id": "hr_042", "question": "An employee requests four remote days after having done so informally in the past. Does precedent create an entitlement?", "difficulty": "hard", "type": "multi-hop", "category": "working-arrangements"}
+{"id": "hr_043", "question": "An employee gets flexible hours approved and assumes remote work is included. Is that assumption valid?", "difficulty": "hard", "type": "multi-hop", "category": "flexible-working"}
+{"id": "hr_044", "question": "An employee books non-refundable travel before leave is approved. What does the policy imply?", "difficulty": "hard", "type": "multi-hop", "category": "leave"}
+{"id": "hr_045", "question": "An employee combines business travel with personal sightseeing. How should costs be handled?", "difficulty": "hard", "type": "multi-hop", "category": "travel-expenses"}
+{"id": "hr_046", "question": "A manager approves business class without the required executive exception. Is the approval sufficient?", "difficulty": "hard", "type": "multi-hop", "category": "travel-expenses"}
+{"id": "hr_047", "question": "Two employees request one course with limited budget. What should the manager evaluate?", "difficulty": "hard", "type": "multi-hop", "category": "learning-development"}
+{"id": "hr_048", "question": "A performance issue may be caused by lack of training and unclear role expectations. What should happen before attributing the gap solely to the employee?", "difficulty": "hard", "type": "multi-hop", "category": "performance-improvement"}
+{"id": "hr_049", "question": "A grievance duplicates a formal appeal route. What should normally happen?", "difficulty": "hard", "type": "multi-hop", "category": "grievance"}
+{"id": "hr_050", "question": "A local employment term gives a greater entitlement than the global policy. Which applies?", "difficulty": "hard", "type": "single-hop", "category": "policy-governance"}

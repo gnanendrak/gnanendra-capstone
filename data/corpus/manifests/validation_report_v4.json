@@ -1,0 +1,49 @@
+{
+  "documents": 24,
+  "golden_questions": 70,
+  "chunks": 690,
+  "min_word_count": 2080,
+  "max_word_count": 2145,
+  "new_documents": {
+    "23_travel_business_expenses": 2145,
+    "24_upskilling_learning_development": 2126
+  },
+  "canned_verbatim_presence": {
+    "canned_1": true,
+    "canned_2": true,
+    "canned_3": true
+  },
+  "all_golden_doc_refs_valid": true,
+  "missing_golden_doc_refs": [],
+  "question_types": {
+    "single-hop": 27,
+    "multi-source": 9,
+    "boundary": 9,
+    "policy-boundary": 4,
+    "exception": 1,
+    "scenario": 5,
+    "multi-hop": 9,
+    "not-found": 6
+  },
+  "categories": {
+    "working-arrangements": 13,
+    "employee-handbook": 2,
+    "attendance": 3,
+    "absence": 2,
+    "performance": 3,
+    "career": 2,
+    "compensation": 1,
+    "recruitment": 3,
+    "onboarding": 2,
+    "ethics": 3,
+    "employee-relations": 5,
+    "privacy": 3,
+    "exit": 2,
+    "discipline": 2,
+    "equality": 2,
+    "negative": 5,
+    "advanced": 2,
+    "travel-expenses": 8,
+    "learning-development": 7
+  }
+}

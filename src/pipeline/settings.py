@@ -16,7 +16,7 @@ class Settings(BaseModel):
     batch_size: int = Field(5, gt=0, le=20)
     fail_rate: float = Field(0.0, ge=0.0, le=1.0)
     model: str = "gpt-4o-mini"
-    use_fake: bool = True
+    use_fake: bool = False
     openai_api_key: str | None = Field(
         default_factory=lambda: os.getenv("OPENAI_API_KEY")
     )
