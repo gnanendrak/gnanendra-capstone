@@ -1,0 +1,50 @@
+gnanendra@Gnanendras-MacBook-Pro gnanendra-capstone % python3 mp2/mp2_rag_starter.py validate
+Loading environment variables…
+
+  Validating 2 questions from predefined_questions.jsonl…
+
+Retrieved 3 chunks for query (requested k=3).
+  ✓ q1_red_headed_league_assistant
+      Q: Who was the assistant working at Jabez Wilson's pawnshop, and what was his real identity?
+      Cited: 01_red_headed_league.txt
+      Expected: 01_red_headed_league.txt
+      Facts matched: 2/5
+      Latency: 3877.08ms
+
+Retrieved 3 chunks for query (requested k=3).
+  ✓ q2_speckled_band_murder_weapon
+      Q: What killed Julia Stoner at Stoke Moran, and how was the method discovered?
+      Cited: 02_speckled_band.txt
+      Expected: 02_speckled_band.txt
+      Facts matched: 3/6
+      Latency: 3167.44ms
+
+  Source-match: 2/2
+
+  Validating 3 questions from learner_questions.jsonl…
+
+Retrieved 3 chunks for query (requested k=3).
+  ✓ q3_blue_carbuncle_henry_baker
+      Q: Trace the route of Henry Baker's Christmas goose from the Alpha Inn to its original supplier.
+      Cited: 03_blue_carbuncle.txt
+      Expected: 03_blue_carbuncle.txt
+      Facts matched: 3/7
+      Latency: 4120.54ms
+
+Retrieved 3 chunks for query (requested k=3).
+  ✓ q4_engineers_thumb_press_clue
+      Q: What physical clue showed Hatherley that Stark's hydraulic press was not compressing Fuller's earth, and what happened after Hatherley questioned him about it?
+      Cited: 04_engineers_thumb.txt
+      Expected: 04_engineers_thumb.txt
+      Facts matched: 6/6
+      Latency: 2762.39ms
+
+Retrieved 3 chunks for query (requested k=3).
+  ✓ q5_speckled_band_method_and_motive
+      Q: How did Holmes infer the snake's route into Julia's room from the bedroom fittings, and what motive did Roylott have for killing her?
+      Cited: 02_speckled_band.txt
+      Expected: 02_speckled_band.txt
+      Facts matched: 3/10
+      Latency: 3829.98ms
+
+  Source-match: 3/3
