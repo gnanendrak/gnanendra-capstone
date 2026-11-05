@@ -55,3 +55,22 @@ what problem is this capstone trying to solve, for whom, and why now?(2–3 sent
 - specific things we'll come back to in later ADRs (1)
 - specific things we'll come back to in later ADRs (2)
 - specific things we'll come back to in later ADRs (3)
+
+
+## W6 — Naive RAG live
+
+**Decision:** Naive RAG is now the default answer path. `/ask_batched` retrieves
+top-3 chunks from `data/corpus/` before generating.
+
+**Baseline KPIs** (see docs/kpi/wk6-snapshot.md):
+- Cost/query: $0.000XXX
+- Latency p50: XXX ms
+- Grounded response rate: XX%
+
+**Top 3 known limits** (to be addressed W7-W11):
+1. Chunking cuts mid-sentence — W7 fixes with structure-aware chunker
+2. Retrieval is pure dense — W9 adds BM25 hybrid
+3. No metadata filtering — W7 introduces via Qdrant payload
+
+**Status:** In production for the demo API. Not yet suitable for real users;
+retrieval quality needs W7-W9 improvements first.

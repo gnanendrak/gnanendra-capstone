@@ -26,6 +26,7 @@ from src.pipeline.pipeline import ask_llm, stream_answer
 from src.pipeline.settings import Settings
 #from pipeline.store_W4 import connect, save_answer
 from src.pipeline.store import connect, save_answer
+from src.rag.naive_rag import ask_rag, load_index
 
 
 logger = logging.getLogger(__name__)
@@ -34,6 +35,7 @@ app = FastAPI(title="Capstone API — W4")
 
 # Single Settings instance — read once at startup.
 _settings = Settings()
+_index = load_index(Path("data/embeddings.json"))
 _db_path = Path(_settings.results_db)
 
 
@@ -41,8 +43,8 @@ async def health() -> dict:
     """Unchanged from W3."""
     return {"status": "ok"}
 
-@app.post("/ask_batched", response_model=Answer)
-async def ask_batched(q: Question) -> Answer:
+@app.post("/ask_batched_w5", response_model=Answer)
+async def ask_batched_w5(q: Question) -> Answer:
     """Non-streaming structured Answer via tool-calling. Persists to SQLite."""
     answer = await ask_llm(q, _settings)
     # Persist with the new columns. Backward-compatible with W3 callers — they
@@ -59,6 +61,17 @@ async def ask_batched(q: Question) -> Answer:
             sources=answer.sources,
             schema_version=answer.schema_version,
         )
+    return answer
+
+
+@app.post("/ask_batched", response_model=Answer)
+async def ask_batched(q: Question) -> Answer:
+    result = ask_rag(q.question, _index, _settings)  # ← W6: RAG call
+    answer = Answer(
+        content=result["answer"],
+        sources=result["sources"],
+        cost_usd=(result["tokens_in"] * 0.15 + result["tokens_out"] * 0.60) / 1_000_000,
+    )
     return answer
 
 @app.post("/ask")
