@@ -26,7 +26,8 @@ from src.pipeline.pipeline import ask_llm, stream_answer
 from src.pipeline.settings import Settings
 #from pipeline.store_W4 import connect, save_answer
 from src.pipeline.store import connect, save_answer
-from src.rag.naive_rag import ask_rag, load_index
+from src.rag.naive_rag import ask_rag, load_index   #week6
+from src.rag import qdrant_rag  #week7
 
 
 logger = logging.getLogger(__name__)
@@ -66,7 +67,8 @@ async def ask_batched_w5(q: Question) -> Answer:
 
 @app.post("/ask_batched", response_model=Answer)
 async def ask_batched(q: Question) -> Answer:
-    result = ask_rag(q.question, _index, _settings)  # ← W6: RAG call
+    #result = ask_rag(q.question, _index, _settings)  # ← W6: RAG call
+    result = qdrant_rag.ask_rag(q.question)     # ← W7: RAG call
     answer = Answer(
         content=result["answer"],
         sources=result["sources"],

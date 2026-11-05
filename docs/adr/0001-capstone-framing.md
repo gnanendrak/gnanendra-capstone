@@ -74,3 +74,27 @@ top-3 chunks from `data/corpus/` before generating.
 
 **Status:** In production for the demo API. Not yet suitable for real users;
 retrieval quality needs W7-W9 improvements first.
+
+
+## W7 — Qdrant-backed vector store
+## W7 — Qdrant-backed vector store
+
+**Decision:** Capstone now uses Qdrant Cloud (free tier) as the vector store.
+`naive_rag.py` retained as reference.
+
+**Vector stack:**
+- Embedding model: text-embedding-3-small (1536 dims, $0.02 per 1M tokens)
+- Vector store: Qdrant Cloud
+- Distance metric: cosine (programme default; see W7 Track A Day 2 for why)
+- Index: HNSW with defaults (m=16, ef_construct=100)
+
+**Rejected alternatives:**
+- text-embedding-3-large — 6.5× cost, insufficient quality gain on our corpus (see Lab Step 2)
+- FAISS — no service layer; we need persistence + REST
+- Chroma — smaller ecosystem, less battle-tested
+- pgvector — no existing Postgres; not worth adding
+
+**Operational KPIs** (see docs/kpi/wk7-snapshot.md):
+- Persistence: Qdrant-managed (was: JSON file on disk)
+- Restart cost: O(1) — no re-load of vectors into memory
+- Ready for W8 metadata filtering
