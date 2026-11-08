@@ -16,6 +16,7 @@ from qdrant_client.models import (
 
 COLLECTION_NAME = "capstone_chunks"
 EMBEDDING_DIM = 1536  # text-embedding-3-small
+UPSERT_BATCH_SIZE = 100
 
 load_dotenv()
 
@@ -46,10 +47,10 @@ def _get_client() -> QdrantClient:
     return QdrantClient(url=url)
 
 
-def load_store() -> QdrantStore:
+def load_store(collection_name: str = COLLECTION_NAME) -> QdrantStore:
     """Return a QdrantStore pointing at the capstone_chunks collection."""
 
-    return QdrantStore(client=_get_client(), collection=COLLECTION_NAME)
+    return QdrantStore(client=_get_client(), collection=collection_name)
 
 
 def ensure_collection(store: QdrantStore) -> None:
@@ -57,11 +58,15 @@ def ensure_collection(store: QdrantStore) -> None:
 
     Idempotent — safe to call on every app start.
     """
+    print(f"Ensuring Qdrant collection {store.collection} exists...")
+    #store.client.delete_collection(store.collection)  # ← W8: for testing only, remove in prod
     existing = [c.name for c in store.client.get_collections().collections]
 
     if store.collection in existing:
+        print(f"Collection {store.collection} already exists, skipping creation.")
         return
 
+    print(f"Creating collection {store.collection}...")
     store.client.create_collection(
         collection_name=store.collection,
         vectors_config=VectorParams(
@@ -70,23 +75,67 @@ def ensure_collection(store: QdrantStore) -> None:
         )
     )
 
+# As of week7
+# def upsert_chunks(store: QdrantStore, chunks: list[dict], vectors: list[list[float]]) -> None:
+#     """Push (chunk, vector) pairs into the store.
+#
+#     Each chunk is a dict with 'chunk_id', 'source_id', and 'text' keys
+#     (matches the shape produced by W6's naive_rag.load_corpus).
+#     """
+#     points = [
+#         PointStruct(
+#             id=idx,
+#             vector=vec,
+#             payload={
+#                 "chunk_id":  chunk["chunk_id"],
+#                 "source_id": chunk["source_id"],
+#                 "text":      chunk["text"],
+#             },
+#         )
+#         for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
+#     ]
+#     store.client.upsert(collection_name=store.collection, points=points)
 
-def upsert_chunks(store: QdrantStore, chunks: list[dict], vectors: list[list[float]]) -> None:
+def upsert_chunks(
+    store: QdrantStore, chunks: list[dict], vectors: list[list[float]]
+) -> None:
     """Push (chunk, vector) pairs into the store.
 
     Each chunk is a dict with 'chunk_id', 'source_id', and 'text' keys
     (matches the shape produced by W6's naive_rag.load_corpus).
     """
+
     points = [
         PointStruct(
             id=idx,
             vector=vec,
+            # payload={
+            #     "chunk_id": chunk["chunk_id"],
+            #     "source_id": chunk["source_id"],
+            #     "text": chunk["text"],
+            # },
             payload={
-                "chunk_id":  chunk["chunk_id"],
-                "source_id": chunk["source_id"],
-                "text":      chunk["text"],
-            },
+                k: v for k, v in chunk.items() if k != "vector"
+            },  # Added in W8 richer payload
         )
+        for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
+    ]
+    for start in range(0, len(points), UPSERT_BATCH_SIZE):
+        store.client.upsert(
+            collection_name=store.collection,
+            points=points[start : start + UPSERT_BATCH_SIZE],
+        )
+
+    
+def upsert_chunks_v2(store: QdrantStore, chunks: list[dict], vectors: list[list[float]]) -> None:
+    """Upsert with the full 9-field metadata payload from W8's pipeline.
+    
+    chunks[i] is a dict with keys: chunk_id, source, doc_type, section_path,
+    page, date, language, version, ingested_at, text, pii_flags_count.
+    """
+    from qdrant_client.models import PointStruct
+    points = [
+        PointStruct(id=idx, vector=vec, payload=chunk)
         for idx, (chunk, vec) in enumerate(zip(chunks, vectors))
     ]
     store.client.upsert(collection_name=store.collection, points=points)

@@ -77,7 +77,6 @@ retrieval quality needs W7-W9 improvements first.
 
 
 ## W7 — Qdrant-backed vector store
-## W7 — Qdrant-backed vector store
 
 **Decision:** Capstone now uses Qdrant Cloud (free tier) as the vector store.
 `naive_rag.py` retained as reference.
@@ -98,3 +97,42 @@ retrieval quality needs W7-W9 improvements first.
 - Persistence: Qdrant-managed (was: JSON file on disk)
 - Restart cost: O(1) — no re-load of vectors into memory
 - Ready for W8 metadata filtering
+
+
+## W8 — Structure-aware ingestion + PII discipline
+
+**Decision:** Capstone corpus is now ingested via `src/ingest/pipeline.py`,
+which parses by extension, chunks recursively (structure-aware where possible),
+scrubs PII with regex + Presidio, enriches with the 9-field metadata schema,
+and upserts to `capstone_chunks_v2`.
+
+**Ingestion pipeline steps:**
+1. Parse (PyMuPDF for PDF, BeautifulSoup for HTML, python-docx for DOCX)
+2. Chunk (recursive, max_size=400)
+3. Scrub PII (regex + Presidio + audit)
+4. Enrich metadata (9 fields)
+5. Embed (text-embedding-3-small)
+6. Upsert (Qdrant collection capstone_chunks_v2)
+
+**PII detection:** hybrid regex + Presidio. Regex catches EMAIL, PHONE, EMP_ID.
+Presidio catches PERSON, LOCATION, ORGANIZATION. Manual audit on 10 random
+chunks per ingestion run — see docs/wk8-pii-audit.md.
+
+**Known gaps:** [what your audit found — non-Latin names, custom formats, etc.]
+
+**Data residency:**
+- Embeddings computed by: OpenAI API (US)
+- Vectors stored at: Qdrant Cloud [region]
+- LLM inference at: OpenAI API (US)
+- App layer: [where you deploy]
+- Cross-jurisdictional flows: US ↔ [Qdrant region] ↔ [app region]
+
+**Rejected alternatives:**
+- Structure-aware chunking on all doc types — DOCX supports it well;
+  PDFs would need custom logic per document; not worth it for MVP.
+- Semantic chunking as default — cost-prohibitive at corpus scale.
+- Presidio only (no regex) — slower; misses obvious patterns Presidio
+  weights lower.
+
+**Operational KPIs** (see docs/kpi/wk8-snapshot.md):
+[fill in]
