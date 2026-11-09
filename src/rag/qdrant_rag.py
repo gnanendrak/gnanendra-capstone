@@ -13,6 +13,8 @@ from dotenv import load_dotenv
 from src.pipeline.settings import Settings
 from src.rag.qdrant_store import QdrantStore, load_store
 
+from src.rag.retrieval import retrieve as retrieve_v9   # NEW
+
 load_dotenv()
 
 CHAT_MODEL = "gpt-4o-mini"
@@ -62,14 +64,45 @@ SYSTEM = (
     """
 )
 
+#week 08
+# def ask_rag(question: str, store: QdrantStore | None = None,
+#             settings: Settings | None = None, k: int = 3) -> dict[str, Any]:
+#     """Full pipeline: embed → retrieve → prompt → generate. Returns dict."""
+#     if store is None:
+#         store = load_store()
+    
+#     retrieved = retrieve(store, question, k=k)
+    
+#     context = "\n\n".join(
+#         f"[{hit['chunk_id']}] (source: {hit['source_id']})\n{hit['text']}"
+#         for hit in retrieved
+#     )
+    
+#     resp = _openai().chat.completions.create(
+#         model=CHAT_MODEL,
+#         temperature=0.0,
+#         messages=[
+#             {"role": "system", "content": SYSTEM},
+#             {"role": "user",   "content":
+#                 f"Context:\n{context}\n\n---\n\nQuestion: {question}"},
+#         ],
+#     )
+    
+#     return {
+#         "answer":     resp.choices[0].message.content,
+#         "sources":    [h["source_id"] for h in retrieved],
+#         "chunk_ids":  [h["chunk_id"] for h in retrieved],
+#         "tokens_in":  resp.usage.prompt_tokens,
+#         "tokens_out": resp.usage.completion_tokens,
+#     }
 
-def ask_rag(question: str, store: QdrantStore | None = None,
-            settings: Settings | None = None, k: int = 3) -> dict[str, Any]:
+#week 09
+def ask_rag(question: str, k: int = 3) -> dict:
     """Full pipeline: embed → retrieve → prompt → generate. Returns dict."""
     if store is None:
         store = load_store()
     
-    retrieved = retrieve(store, question, k=k)
+    retrieved = retrieve_v9(question, k=k)
     
     context = "\n\n".join(
         f"[{hit['chunk_id']}] (source: {hit['source_id']})\n{hit['text']}"

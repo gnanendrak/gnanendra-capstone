@@ -136,3 +136,30 @@ chunks per ingestion run — see docs/wk8-pii-audit.md.
 
 **Operational KPIs** (see docs/kpi/wk8-snapshot.md):
 [fill in]
+
+
+## W9 — Hybrid retrieval + cross-encoder reranking
+
+**Decision:** Capstone retrieval upgrades from pure dense to hybrid+rerank.
+
+**Retrieval stack:**
+- BM25 library: rank-bm25 (BM25Okapi)
+- Tokenization: lowercase + alphanumeric-with-hyphens-and-slashes (preserves 'AC-1042', '/v2/dashboards')
+- Dense model: text-embedding-3-small (1536 dim, unchanged from W7)
+- Fusion: RRF with k=60 (Cormack 2009 default)
+- Reranker: cross-encoder/ms-marco-MiniLM-L-6-v2 (local CPU, ~80MB)
+- Rerank input: top-10 from hybrid retrieve
+- Rerank output: top-3 final
+
+**Rejected alternatives:**
+- Cohere Rerank API — paid ($1/1000 reranks), no meaningful accuracy lift on our corpus vs local cross-encoder
+- Weighted score fusion (instead of RRF) — requires per-corpus weight tuning; RRF is tuning-free
+- Larger cross-encoder (ms-marco-MiniLM-L-12-v2, ~120MB) — 2× slower for negligible accuracy lift on English enterprise docs
+- LlamaIndex framework — retrieval fits comfortably in ~140 LOC; framework overhead not justified yet (revisit at W12+)
+
+**Operational KPIs** (see docs/kpi/wk9-snapshot.md):
+[fill in]
+
+**Known gaps to revisit:**
+- BM25 index rebuilt from Qdrant scroll at process start (~2s for 300 chunks). For larger corpora, persist to disk (W10 caching topic).
+- Cross-encoder is CPU-bound; consider GPU or batch reranking if query volume grows.
