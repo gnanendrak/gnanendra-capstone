@@ -63,9 +63,9 @@ what problem is this capstone trying to solve, for whom, and why now?(2–3 sent
 top-3 chunks from `data/corpus/` before generating.
 
 **Baseline KPIs** (see docs/kpi/wk6-snapshot.md):
-- Cost/query: $0.000XXX
+- Cost/query: $0.00007172 
 - Latency p50: XXX ms
-- Grounded response rate: XX%
+- Grounded response rate: 60%
 
 **Top 3 known limits** (to be addressed W7-W11):
 1. Chunking cuts mid-sentence — W7 fixes with structure-aware chunker
